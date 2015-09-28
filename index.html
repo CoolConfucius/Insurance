@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="ctrl">
+<head>
+  <meta charset="UTF-8">
+  <title>Insurance</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+</head>
+<body>
+  <h1>Insurance</h1>
+  <input type="text" id="addRoom" ng-model='addRoom'>
+  <button ng-click="clickAddRoom()">add Room</button>
+  <div class="row">
+    <div class="col-md-2">
+      <p>name</p>
+      <input type="text" id="addName" ng-model='addName'>
+    </div>
+    <div class="col-md-2">
+      <p>Qty</p>
+      <input type="number" id="addQty" ng-model='addQty'>      
+    </div>
+    <div class="col-md-2">
+      <p>cost/ea</p>
+      <input type="number" id="addCost" step="0.01" ng-model='addCost'>      
+    </div>
+    <div class="col-md-2">
+      <br>
+      <div class="input-group-btn dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms <span class="caret"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li ng-repeat="n in rooms track by $index"><a href="">{{n}}</a></li>
+            </ul>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <br>
+      <button ng-click="clickAddItem()">Add</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="input-group-btn dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rooms <span class="caret"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li ng-repeat="n in rooms track by $index"><a href="">{{n}}</a></li>
+            </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <p>Total Cost (room)</p>
+    </div>
+    <div class="col-md-4">
+      <p>$200.00</p>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+  <h2>Items Table</h2>
+  <p>Here's a table of all your items:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>count</th>
+        <th>cost/ea</th>
+        <th>total cost/item</th>
+        <th>trashbin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="i in items track by $index">
+        <td><span>{{i.name}}</span></td>
+        <td>{{i.count}}</td>
+        <td>{{i.costEa}}</td>
+        <td>{{i.count * i.costEa}}</td>
+      </tr>    
+    </tbody>
+  </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
